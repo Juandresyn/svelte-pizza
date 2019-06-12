@@ -1,11 +1,12 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const mode = process.env.NODE_ENV || 'development';
 const prod = mode === 'production';
 
 module.exports = {
 	entry: {
-		bundle: ['./src/main.js']
+		bundle: ['./src/js/main.js']
 	},
 	resolve: {
 		extensions: ['.mjs', '.js', '.svelte']
@@ -19,7 +20,7 @@ module.exports = {
 		rules: [
 			{
 				test: /\.svelte$/,
-				exclude: /node_modules/,
+				exclude: /node_modules\/(?!(svelte-routing)\/).*/,
 				use: {
 					loader: 'svelte-loader',
 					options: {
@@ -45,7 +46,10 @@ module.exports = {
 	plugins: [
 		new MiniCssExtractPlugin({
 			filename: '[name].css'
-		})
+		}),
+		new CopyWebpackPlugin([
+            {from:'src/img', to: __dirname + '/public/img'} 
+        ]),
 	],
-	devtool: prod ? false: 'source-map'
+	devtool: prod ? false: 'source-map',
 };

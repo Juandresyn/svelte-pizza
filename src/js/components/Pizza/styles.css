@@ -1,0 +1,15 @@
+.pizza {
+    background-color: #c1c1c1;
+    border-radius: 100%;
+    height: 90vw;
+    margin: 10px;
+    width: 90vw;
+}
+
+@media screen and (min-width: 1024px) {
+    .pizza {
+        height: 40vw;
+        margin: 50px;
+        width: 40vw;       
+    }
+}

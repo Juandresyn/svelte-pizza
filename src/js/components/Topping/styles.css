@@ -1,0 +1,14 @@
+.pizza-topping {
+    background-position: center;
+    background-size: cover;
+    height: 90vw;
+    position: absolute;
+    width: 90vw;
+}
+
+@media screen and (min-width: 1024px) {
+    .pizza-topping {
+        height: 40vw;
+        width: 40vw;       
+    }
+}

@@ -1,0 +1,19 @@
+.pizza-base {
+    background-image: url('/img/pizza/base.png');
+    background-position: center;
+    background-size: cover;
+    height: 90vw;
+    position: absolute;
+    width: 90vw;
+}
+
+@media screen and (min-width: 1024px) {
+    .pizza-base {
+        height: 40vw;
+        width: 40vw;       
+    }
+}
+
+.pizza-base--cheese {
+    background-image: url('/img/pizza/base-cheese.png');
+}
