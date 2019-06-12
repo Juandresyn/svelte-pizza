@@ -4,20 +4,18 @@
 		max-width: 960px;
 		padding: 15px 20px;
 	}
-
-	.nav-item {
-		margin-right: 30px;
-	}
 </style>
 
 <script>
 	import { Router, Route, Link } from 'svelte-routing';
+	import SignOn from './components/SignOn/index.svelte';
 	import NewOrder from './pages/NewOrder/index.svelte';
 	import Orders from './pages/Orders/index.svelte';
+	import { userEmail } from './stores/user.js';
 
 	export let url = '';
 	let routes = {
-		newOrder: 'new-order',
+		newOrder: '/',
 		previousOrders: 'my-orders',
 	};
 
@@ -39,6 +37,11 @@
 
 	<div>
 		<Route path="{routes.newOrder}" component="{NewOrder}" />
-		<Route path="{routes.previousOrders}" component="{Orders}" />
+		{#if $userEmail !== ''}
+			<Route path="{routes.previousOrders}" component="{Orders}" />
+		{/if}
 	</div>
 </Router>
+
+---------------------
+<SignOn></SignOn>

@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "firebase": "^6.1.1",
+    "firebaseui": "^4.0.0",
     "svelte-router": "^2.0.0-beta.1",
     "svelte-routing": "^1.2.0"
   }
